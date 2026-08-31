@@ -1,0 +1,137 @@
+.student-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, #f5f7ff 0%, #eef8ff 100%);
+}
+
+.student-card {
+  width: min(100%, 700px);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(30, 41, 59, 0.12);
+  padding: 32px 28px;
+}
+
+.badge {
+  display: inline-block;
+  margin: 0 0 12px;
+  background: #e0f2fe;
+  color: #075985;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.student-card h1 {
+  margin: 0 0 24px;
+  font-size: 2.2rem;
+  color: #1f2937;
+  text-align: left;
+}
+
+.activity-form {
+  display: grid;
+  grid-template-columns: 140px 1fr 90px;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.activity-form input {
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.96rem;
+  outline: none;
+}
+
+.activity-form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.activity-form button,
+.delete-btn {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.activity-form button {
+  background: #2563eb;
+  color: white;
+  padding: 12px 10px;
+}
+
+.activity-form button:hover {
+  background: #1d4ed8;
+}
+
+.activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 6px solid #3b82f6;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.time {
+  min-width: 92px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.task {
+  flex: 1;
+  color: #334155;
+  font-size: 1rem;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 8px 10px;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}
+
+@media (max-width: 600px) {
+  .student-card {
+    padding: 24px 18px;
+  }
+
+  .activity-form {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-item {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .time {
+    min-width: auto;
+  }
+}
