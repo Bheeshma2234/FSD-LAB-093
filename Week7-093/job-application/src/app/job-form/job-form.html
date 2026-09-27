@@ -1,0 +1,131 @@
+<div class="container">
+
+  <h1>Job Application Form</h1>
+
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+
+    <!-- Full Name -->
+    <label>Full Name</label>
+
+    <input type="text" formControlName="name">
+
+    @if (jobForm.get('name')?.touched && jobForm.get('name')?.invalid) {
+      <p class="error">Name is required</p>
+    }
+
+
+    <!-- Email -->
+    <label>Email</label>
+
+    <input type="email" formControlName="email">
+
+    @if (jobForm.get('email')?.touched && jobForm.get('email')?.invalid) {
+      <p class="error">Enter a valid email address</p>
+    }
+
+
+    <!-- Phone -->
+    <label>Phone Number</label>
+
+    <input type="text" formControlName="phone">
+
+    @if (jobForm.get('phone')?.touched && jobForm.get('phone')?.invalid) {
+      <p class="error">Enter a valid 10-digit phone number</p>
+    }
+
+
+    <!-- Position -->
+    <label>Applying For</label>
+
+    <select formControlName="position">
+
+      <option value="">Select Position</option>
+
+      <option value="Software Developer">
+        Software Developer
+      </option>
+
+      <option value="Data Analyst">
+        Data Analyst
+      </option>
+
+      <option value="Web Developer">
+        Web Developer
+      </option>
+
+      <option value="Cloud Engineer">
+        Cloud Engineer
+      </option>
+
+    </select>
+
+    @if (jobForm.get('position')?.touched && jobForm.get('position')?.invalid) {
+      <p class="error">Please select a position</p>
+    }
+
+
+    <!-- Qualification -->
+    <label>Qualification</label>
+
+    <select formControlName="qualification">
+
+      <option value="">Select Qualification</option>
+
+      <option value="B.Tech">B.Tech</option>
+
+      <option value="B.E">B.E</option>
+
+      <option value="M.Tech">M.Tech</option>
+
+      <option value="MCA">MCA</option>
+
+    </select>
+
+    @if (jobForm.get('qualification')?.touched && jobForm.get('qualification')?.invalid) {
+      <p class="error">Qualification is required</p>
+    }
+
+
+    <!-- Experience -->
+    <label>Experience</label>
+
+    <select formControlName="experience">
+
+      <option value="">Select Experience</option>
+
+      <option value="Fresher">Fresher</option>
+
+      <option value="1-2 Years">1-2 Years</option>
+
+      <option value="3-5 Years">3-5 Years</option>
+
+      <option value="5+ Years">5+ Years</option>
+
+    </select>
+
+    @if (jobForm.get('experience')?.touched && jobForm.get('experience')?.invalid) {
+      <p class="error">Experience is required</p>
+    }
+
+
+    <!-- Skills -->
+    <label>Skills</label>
+
+    <textarea
+      formControlName="skills"
+      placeholder="Enter your technical skills">
+    </textarea>
+
+    @if (jobForm.get('skills')?.touched && jobForm.get('skills')?.invalid) {
+      <p class="error">Skills are required</p>
+    }
+
+
+    <!-- Submit -->
+    <button type="submit">
+      Submit Application
+    </button>
+
+  </form>
+
+</div>
