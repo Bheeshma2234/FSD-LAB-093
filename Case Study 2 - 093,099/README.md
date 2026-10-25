@@ -397,7 +397,8 @@ This case study demonstrates practical understanding of:
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Bheeshma Shankar A**
+**Pranav Ch**
 
 Full Stack Development Case Study
 
