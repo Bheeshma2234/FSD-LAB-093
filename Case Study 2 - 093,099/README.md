@@ -395,12 +395,12 @@ This case study demonstrates practical understanding of:
 - Add automated unit and integration tests.
 - Deploy the application with a hosted MongoDB database.
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
-**Bheeshma Shankar A**
-**Pranav Ch**
+- **Bheeshma Shankar A**
+- **Pranav Ch**
 
-Full Stack Development Case Study
+Full Stack Development — CineWorld Movie Ticket Booking & Resale System
 
 ## 📄 License
 
