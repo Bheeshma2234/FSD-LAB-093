@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "c82c0a00-9c37-4ec4-a65b-9dca0a2f7b7e",
+    "name": "PennyTrack Expense Tracker API",
+    "description": "Health, transaction CRUD, monthly summary and Pennywise financial agent.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "transactionId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "List Transactions",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/transactions"
+      }
+    },
+    {
+      "name": "Create Expense",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"expense\",\n  \"amount\": 250,\n  \"category\": \"Food\",\n  \"description\": \"Postman test lunch\",\n  \"date\": \"2026-10-28\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/transactions"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code === 201) { const data = pm.response.json(); if (data._id) pm.collectionVariables.set(\"transactionId\", data._id); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Update Transaction",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"expense\",\n  \"amount\": 275,\n  \"category\": \"Food\",\n  \"description\": \"Updated from Postman\",\n  \"date\": \"2026-10-28\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/transactions/{{transactionId}}"
+      }
+    },
+    {
+      "name": "Monthly Summary",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/summary?month=2026-10"
+      }
+    },
+    {
+      "name": "AI Agent - Monthly Insights",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/agent/insights?month=2026-10"
+      }
+    },
+    {
+      "name": "AI Agent - Chat",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"month\": \"2026-10\",\n  \"message\": \"Where am I spending the most and how can I save money?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/agent/chat"
+      }
+    },
+    {
+      "name": "Delete Transaction",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/transactions/{{transactionId}}"
+      }
+    }
+  ]
+}
